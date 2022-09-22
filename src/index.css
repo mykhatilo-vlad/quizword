@@ -1,0 +1,23 @@
+:root {
+  --cl-body: rgb(66, 66, 156);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 20px;
+  /* background-color: var(--cl-body); */
+}
+
+button {
+  cursor: pointer;
+  padding: 0;
+  border: 0;
+  background: transparent;
+}
+
+p {
+  margin: 0;
+}
