@@ -1,12 +1,23 @@
 #root {
-  max-width: 1280px;
+  max-width: 90vw;
   width: 100%;
   margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
 }
 
-.cards-grid {
-  display: grid;
-  gap: 40px;
+@media (min-width: 1025px) {
+  .columns {
+    display: grid;
+    grid-template-columns: repeat(var(--cols), 1fr);
+    overflow-x: auto;
+    min-height: calc(100vh - 6rem);
+    gap: 1.5rem;
+    padding: 2rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  .columns {
+    overflow: hidden;
+    padding: 2rem 0;
+  } 
 }

@@ -1,11 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Sofia+Sans+Semi+Condensed:wght@600&display=swap');
 
+* {
+  box-sizing: border-box;
+}
+
 :root {
   font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
-  font-size: 16px;
-  line-height: 24px;
-  font-weight: 400;
-
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
   background-color: #242424;
@@ -24,6 +24,10 @@
   --blue: #219EBC;
   --light-blue: #8ECAE6;
   --family: 'Sofia Sans Semi Condensed', sans-serif;
+  --offset: 2px;
+  --blur: 10px;
+  --shadow: var(--offset) var(--offset) var(--blur) var(--lighter-blue),
+    calc(var(--offset) * -1) calc(var(--offset) * -1) var(--blur) var(--darker-blue);
 }
 
 a {
@@ -37,13 +41,9 @@ a:hover {
 
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
   min-height: 100vh;
   background-color: var(--dark-blue);
   font-family: var(--family);
-  letter-spacing: 12em;
 }
 
 h1 {
@@ -70,6 +70,10 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
+h1, h2, h3 {
+  margin: 0;
+}
+
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
@@ -80,5 +84,40 @@ button:focus-visible {
   }
   button {
     background-color: #f9f9f9;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--orange);
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--yellow);
+}
+
+.is-dragging {
+  opacity: 0.3;
+}
+
+.is-drag-over {
+  box-shadow: var(--shadow);
+}
+
+@media (min-width: 1025px) {
+  html {
+    font-size: 1vw;
   }
 }

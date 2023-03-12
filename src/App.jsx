@@ -1,16 +1,31 @@
-import { useState, useEffect } from 'react'
+import {useRef, useState}  from 'react';
 import './App.css'
-import words from './data/words'
-import WordCard from './cards/WordCard' 
+import columns from './data/columns';
+import words from './data/words';
+import Column from './columns/Column';
 
 function App() {
-  const [list, setList] = useState(words)
+  const cardRef = useRef(null);
+
+  const handleDrop = (column, card) => {
+   column.insertBefore(cardRef.current, card)
+  }
+
+  const handleStartDrag = (card) => {
+    cardRef.current = card;
+  }
 
   return (
     <div className="App">
-      <div className="cards-grid">
-        {list.map((word, index) => {
-          return <WordCard key={index} data={word} />
+      <div className="columns" style={{'--cols': columns.length}}>
+        {columns && columns.map((column) => {
+          return <Column 
+            key={column.id} 
+            column={column} 
+            handleDrop={handleDrop}
+            cards={words.filter(word => word.column === column.id) || []} 
+            handleStartDrag={handleStartDrag}
+          />
         })}
       </div>
     </div>
