@@ -4,13 +4,21 @@
   margin: 0 auto;
 }
 
+.columns {
+  cursor: grab;
+}
+
+.columns.grabbing {
+  cursor: grabbing;
+}
+
 @media (min-width: 1025px) {
   .columns {
     display: grid;
-    grid-template-columns: repeat(var(--cols), 1fr);
+    grid-template-columns: repeat(var(--cols), calc(100vw / 4));
     overflow-x: auto;
     min-height: calc(100vh - 6rem);
-    gap: 1.5rem;
+    gap: 4rem;
     padding: 2rem;
   }
 }

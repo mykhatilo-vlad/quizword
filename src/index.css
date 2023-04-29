@@ -94,7 +94,8 @@ h1, h2, h3 {
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: transparent;
+  background: var(--darker-blue);
+  border-radius: 10px;
 }
 
 /* Handle */

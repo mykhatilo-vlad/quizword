@@ -12,19 +12,22 @@
     color: #fff;
     text-transform: uppercase;
     white-space: nowrap;
+    cursor: auto;
 }
   
 .column__cards {
     display: flex;
     gap: 1.5rem;
     flex-grow: 1;
+    max-height: 88vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    margin-right: -2rem;
+    margin-left: -1rem;
+    padding: 1rem;
 }
   
   @media (min-width: 1025px) {
-    .column {
-      /* width: 100%; */
-    }
-  
     .column__cards {
       flex-direction: column;
     }

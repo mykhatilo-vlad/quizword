@@ -2,11 +2,6 @@ import WordCard from '../cards/WordCard';
 import './Column.css';
 
 const Column = ({column, cards, handleDrop, handleStartDrag}) => {
-    // const onDrop = (ev) => {
-    //     ev.target.closest('.column__cards').classList.remove('is-drag-over');
-       
-    // }
-
     const onDragOver = (ev) => {
         ev.preventDefault();
         handleDrop(ev.target.closest('.column__cards'), ev.target.closest('.word-card'))
